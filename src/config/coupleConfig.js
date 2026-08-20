@@ -30,19 +30,19 @@ Rith`,
       title: 'Nisai', 
       artist: 'OLICA',
       src: '/music/nisai.mp3',
-      cover: '/public/image/1.jpg'
+      cover: '/image/1.jpg'
     },
     { 
       title: 'Nisai', 
       artist: 'Mann Doss',
       src: '/music/manndoss.mp3',
-      cover: '/public/image/2.jpg'
+      cover: '/image/2.jpg'
     },
     { 
       title: 'Kupreng', 
       artist: 'unknown',
       src: '/music/kupreng.mp3',
-      cover: '/public/image/3.jpg'
+      cover: '/image/3.jpg'
     },
   ],
   colors: {
