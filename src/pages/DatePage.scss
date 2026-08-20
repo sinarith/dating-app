@@ -1,0 +1,30 @@
+@use '../styles/variables' as v;
+
+.date-page {
+  gap: v.$space-3;
+
+  &__progress {
+    display: flex;
+    gap: 8px;
+    margin-bottom: v.$space-1;
+  }
+
+  &__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: v.$color-surface-strong;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+
+    &.is-active {
+      background: v.$gradient-romantic;
+      box-shadow: 0 0 10px rgba(255, 93, 162, 0.6);
+    }
+  }
+
+  &__step {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}

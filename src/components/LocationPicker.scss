@@ -1,0 +1,77 @@
+@use '../styles/variables' as v;
+
+.location-picker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: v.$space-3;
+  max-width: 560px;
+  width: 100%;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: v.$space-2;
+    width: 100%;
+
+    @include v.tablet-up {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__card {
+    @include v.glass-card;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: v.$space-2;
+    color: v.$color-text;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-align: center;
+
+    span:first-child {
+      font-size: 1.6rem;
+    }
+
+    &.is-selected {
+      border-color: v.$color-secondary-500;
+      box-shadow: v.$shadow-glow-purple;
+      background: rgba(176, 107, 255, 0.14);
+    }
+  }
+
+  &__custom-toggle {
+    background: none;
+    color: v.$color-accent-300;
+    font-size: 0.9rem;
+    text-decoration: underline;
+  }
+
+  &__custom {
+    display: flex;
+    gap: v.$space-1;
+    width: 100%;
+
+    input {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid v.$color-border;
+      border-radius: v.$radius-sm;
+      padding: 10px 14px;
+      color: v.$color-text;
+      font-family: inherit;
+
+      &:focus {
+        outline: none;
+        border-color: v.$color-secondary-500;
+      }
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: v.$space-2;
+  }
+}

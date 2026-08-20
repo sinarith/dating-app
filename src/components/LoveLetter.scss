@@ -1,0 +1,62 @@
+@use '../styles/variables' as v;
+
+.love-letter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: v.$space-4;
+  max-width: 560px;
+  width: 100%;
+
+  &__envelope {
+    position: relative;
+    width: 220px;
+    height: 150px;
+    background: linear-gradient(135deg, v.$color-secondary-700, v.$color-primary-700);
+    border-radius: v.$radius-md;
+    box-shadow: v.$shadow-glow-purple;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    overflow: hidden;
+  }
+
+  &__envelope-flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 75px;
+    background: linear-gradient(135deg, v.$color-secondary-500, v.$color-primary-500);
+    clip-path: polygon(0 0, 100% 0, 50% 80%);
+  }
+
+  &__envelope-heart {
+    font-size: 2rem;
+    z-index: 1;
+    margin-top: 20px;
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.5));
+  }
+
+  &__envelope-hint {
+    z-index: 1;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  &__paper {
+    width: 100%;
+    min-height: 260px;
+    text-align: left;
+  }
+
+  &__text {
+    white-space: pre-wrap;
+    font-family: v.$font-display;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: v.$color-text;
+  }
+}

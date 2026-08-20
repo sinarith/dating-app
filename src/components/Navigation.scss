@@ -1,0 +1,121 @@
+@use '../styles/variables' as v;
+
+.navigation {
+  &__hamburger {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 45;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: v.$color-surface-strong;
+    border: 1px solid v.$color-border;
+    color: v.$color-text;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(12px);
+    box-shadow: v.$shadow-card;
+  }
+
+  &__overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 43;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+  }
+
+  &__drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 44;
+    height: 100vh;
+    width: 260px;
+    border-radius: 0;
+    border-left: 1px solid v.$color-border;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 80px 20px 20px;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    border-radius: v.$radius-sm;
+    color: v.$color-text;
+    font-weight: 500;
+    text-align: left;
+    background: transparent;
+    transition: background 0.2s ease;
+
+    &:hover {
+      background: v.$color-surface-strong;
+    }
+
+    &.is-active {
+      background: rgba(255, 93, 162, 0.15);
+      border-left: 3px solid v.$color-primary-500;
+    }
+
+    span:first-child {
+      font-size: 1.2rem;
+    }
+  }
+
+  &__bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 40;
+    display: flex;
+    justify-content: space-around;
+    padding: 8px 16px;
+    padding-bottom: max(8px, env(safe-area-inset-bottom));
+    background: rgba(10, 10, 18, 0.85);
+    backdrop-filter: blur(20px);
+    border-top: 1px solid v.$color-border;
+
+    @include v.tablet-up {
+      top: 0;
+      bottom: auto;
+      left: 50%;
+      transform: translateX(-50%);
+      width: auto;
+      border-top: none;
+      border-bottom: 1px solid v.$color-border;
+      border-radius: 0 0 v.$radius-lg v.$radius-lg;
+      padding: 10px 24px;
+      gap: 8px;
+      justify-content: center;
+    }
+  }
+
+  &__bar-item {
+    width: 44px;
+    height: 44px;
+    border-radius: v.$radius-sm;
+    background: transparent;
+    color: v.$color-text-muted;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+
+    &:hover {
+      color: v.$color-text;
+      transform: translateY(-2px);
+    }
+
+    &.is-active {
+      color: v.$color-primary-500;
+      background: rgba(255, 93, 162, 0.12);
+    }
+  }
+}

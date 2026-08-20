@@ -1,0 +1,61 @@
+@use '../styles/variables' as v;
+
+.celebration {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 50% 30%, rgba(255, 93, 162, 0.18), v.$color-bg 70%);
+  padding: v.$space-3;
+  overflow: hidden;
+
+  &__hearts {
+    position: absolute;
+    inset: 0;
+  }
+
+  &__heart {
+    position: absolute;
+    bottom: -10%;
+    animation-name: float-up;
+    animation-timing-function: ease-in;
+    animation-iteration-count: infinite;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: v.$space-2;
+    @include v.glass-card;
+    padding: v.$space-5 v.$space-4;
+    max-width: 480px;
+  }
+
+  &__big-heart {
+    font-size: 4rem;
+    filter: drop-shadow(0 0 30px rgba(255, 93, 162, 0.6));
+  }
+
+  &__title {
+    font-size: clamp(2rem, 6vw, 2.8rem);
+  }
+
+  &__line {
+    font-size: 1.2rem;
+
+    &--muted {
+      color: v.$color-text-muted;
+      font-size: 1rem;
+    }
+  }
+
+  &__continue {
+    margin-top: v.$space-2;
+  }
+}

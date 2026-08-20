@@ -1,0 +1,17 @@
+.floating-hearts {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+
+  &__item {
+    position: absolute;
+    bottom: -10%;
+    animation-name: float-up;
+    animation-timing-function: ease-in;
+    animation-iteration-count: infinite;
+    opacity: 0;
+    filter: drop-shadow(0 0 6px rgba(255, 93, 162, 0.4));
+  }
+}

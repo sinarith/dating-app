@@ -1,0 +1,220 @@
+@use '../styles/variables' as v;
+
+.glass-player-wrapper {
+  position: fixed;
+  bottom: 88px;
+  right: 16px;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  @include v.tablet-up {
+    bottom: 20px;
+    right: 20px;
+  }
+}
+
+.glass-player__toggle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: v.$color-surface-strong;
+  border: 1px solid v.$color-border;
+  color: v.$color-text;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: v.$shadow-card;
+  transition: transform 0.2s ease, background 0.2s ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.08);
+  }
+}
+
+.glass-player-panel {
+  @include v.glass-card;
+  border-radius: v.$radius-lg;
+  padding: 20px 18px 16px;
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 12px;
+  box-shadow: v.$shadow-card;
+  color: v.$color-text;
+  animation: playerFadeIn 0.25s ease-out;
+}
+
+.glass-player__header {
+  text-align: center;
+  margin-bottom: 4px;
+
+  .glass-player__title {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: v.$color-text;
+  }
+
+  .glass-player__artist {
+    margin: 2px 0 0;
+    font-size: 0.8rem;
+    color: v.$color-text-muted;
+  }
+}
+
+.glass-player__timestamps {
+  font-size: 0.75rem;
+  color: v.$color-text-muted;
+  margin-bottom: 16px;
+  display: flex;
+  gap: 6px;
+
+  .divider {
+    opacity: 0.4;
+  }
+}
+
+.glass-player__cover-container {
+  width: 150px;
+  height: 150px;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.glass-player__circular-progress {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.1s linear;
+}
+
+.glass-player__cover-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid v.$color-border;
+  background: v.$color-surface-strong;
+}
+
+.glass-player__cover-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+
+  &.is-spinning {
+    animation: rotateCover 18s linear infinite;
+  }
+}
+
+.glass-player__actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 12px;
+
+  .glass-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: v.$color-text;
+    padding: 0;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+
+    &:hover {
+      transform: scale(1.12);
+    }
+
+    &.play-main {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: v.$gradient-romantic;
+      box-shadow: v.$shadow-card;
+
+      .icon-dark {
+        color: #ffffff;
+        fill: #ffffff;
+      }
+    }
+
+    &.liked .neon-icon-active {
+      color: v.$color-primary-500;
+      fill: v.$color-primary-500;
+      filter: drop-shadow(0 0 6px v.$color-primary-500);
+    }
+  }
+}
+
+.glass-player__volume {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 90%;
+
+  .glass-volume-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 4px;
+    border-radius: v.$radius-full;
+    background: rgba(255, 255, 255, 0.2);
+    outline: none;
+    cursor: pointer;
+
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: v.$color-primary-500;
+      cursor: pointer;
+    }
+
+    &::-moz-range-thumb {
+      width: 12px;
+      height: 12px;
+      border: none;
+      border-radius: 50%;
+      background: v.$color-primary-500;
+      cursor: pointer;
+    }
+  }
+}
+
+@keyframes rotateCover {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes playerFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

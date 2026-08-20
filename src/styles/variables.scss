@@ -1,0 +1,92 @@
+// Neutrals
+$color-bg: #0a0a12;
+$color-bg-alt: #12111e;
+$color-surface: rgba(255, 255, 255, 0.06);
+$color-surface-strong: rgba(255, 255, 255, 0.1);
+$color-border: rgba(255, 255, 255, 0.14);
+$color-text: #f5f3ff;
+$color-text-muted: rgba(245, 243, 255, 0.65);
+$color-text-faint: rgba(245, 243, 255, 0.4);
+
+// Primary - neon pink
+$color-primary-100: #ffe3ee;
+$color-primary-300: #ff9dc4;
+$color-primary-500: #ff5da2;
+$color-primary-700: #e2337f;
+$color-primary-900: #a11a5c;
+
+// Secondary - purple
+$color-secondary-100: #ecdcff;
+$color-secondary-300: #cf9fff;
+$color-secondary-500: #b06bff;
+$color-secondary-700: #8a3fe0;
+$color-secondary-900: #5c26a8;
+
+// Accent - soft blue
+$color-accent-100: #dcf1ff;
+$color-accent-300: #9edcff;
+$color-accent-500: #6ec3ff;
+$color-accent-700: #3d97e0;
+
+// Semantic
+$color-success-500: #4fd88b;
+$color-success-700: #2fa869;
+$color-warning-500: #ffb84f;
+$color-warning-700: #e2932a;
+$color-error-500: #ff6b6b;
+$color-error-700: #d94848;
+
+// Gradients
+$gradient-romantic: linear-gradient(135deg, $color-primary-500 0%, $color-secondary-500 55%, $color-accent-500 100%);
+$gradient-glow: radial-gradient(circle, rgba(255, 93, 162, 0.35) 0%, rgba(176, 107, 255, 0.15) 45%, transparent 75%);
+
+// Spacing (8px system)
+$space-1: 8px;
+$space-2: 16px;
+$space-3: 24px;
+$space-4: 32px;
+$space-5: 40px;
+$space-6: 48px;
+$space-8: 64px;
+$space-10: 80px;
+
+// Radii
+$radius-sm: 12px;
+$radius-md: 20px;
+$radius-lg: 28px;
+$radius-full: 999px;
+
+// Shadows
+$shadow-glow-pink: 0 0 40px rgba(255, 93, 162, 0.35);
+$shadow-glow-purple: 0 0 40px rgba(176, 107, 255, 0.3);
+$shadow-card: 0 20px 60px rgba(0, 0, 0, 0.45);
+
+// Typography
+$font-display: 'Playfair Display', Georgia, serif;
+$font-body: 'Poppins', system-ui, sans-serif;
+
+// Breakpoints
+$bp-mobile: 480px;
+$bp-tablet: 768px;
+$bp-desktop: 1200px;
+
+@mixin tablet-up {
+  @media (min-width: $bp-tablet) {
+    @content;
+  }
+}
+
+@mixin desktop-up {
+  @media (min-width: $bp-desktop) {
+    @content;
+  }
+}
+
+@mixin glass-card {
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: $shadow-card;
+}

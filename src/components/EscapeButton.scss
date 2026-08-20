@@ -1,0 +1,9 @@
+@use '../styles/variables' as v;
+
+.escape-button {
+  position: fixed;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+  white-space: nowrap;
+  min-width: 120px;
+}

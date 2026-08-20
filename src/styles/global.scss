@@ -1,0 +1,173 @@
+@use './variables' as v;
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+body {
+  background: v.$color-bg;
+  color: v.$color-text;
+  font-family: v.$font-body;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+h1, h2, h3 {
+  font-family: v.$font-display;
+  line-height: 1.2;
+  font-weight: 600;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+}
+
+body.has-custom-cursor {
+  cursor: none;
+
+  * {
+    cursor: none;
+  }
+}
+
+::selection {
+  background: v.$color-primary-500;
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid v.$color-accent-300;
+  outline-offset: 3px;
+  border-radius: v.$radius-sm;
+}
+
+.app-shell {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.page {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+  width: 100%;
+  padding: v.$space-6 v.$space-2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: v.$space-4;
+
+  @include v.tablet-up {
+    padding: v.$space-8 v.$space-4;
+  }
+}
+
+.page-scroll {
+  justify-content: flex-start;
+  padding-top: v.$space-8;
+  padding-bottom: v.$space-10 * 2;
+}
+
+.gradient-text {
+  background: v.$gradient-romantic;
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradient-shift 6s ease infinite;
+}
+
+.glass-card {
+  @include v.glass-card;
+  padding: v.$space-4;
+
+  @include v.tablet-up {
+    padding: v.$space-5;
+  }
+}
+
+.btn {
+  font-weight: 500;
+  border-radius: v.$radius-full;
+  padding: 14px 32px;
+  font-size: 1rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  min-height: 48px;
+
+  &:active {
+    transform: scale(0.96);
+  }
+}
+
+.btn-primary {
+  background: v.$gradient-romantic;
+  color: #fff;
+  box-shadow: v.$shadow-glow-pink;
+
+  &:hover {
+    box-shadow: 0 0 55px rgba(255, 93, 162, 0.55);
+    transform: translateY(-2px);
+  }
+}
+
+.btn-ghost {
+  background: v.$color-surface;
+  color: v.$color-text;
+  border: 1px solid v.$color-border;
+
+  &:hover {
+    background: v.$color-surface-strong;
+  }
+}
+
+.section-title {
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+  text-align: center;
+}
+
+.section-subtitle {
+  color: v.$color-text-muted;
+  text-align: center;
+  font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+  max-width: 520px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
